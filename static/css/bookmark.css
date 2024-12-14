@@ -1,0 +1,42 @@
+.bookmarks {
+
+}
+
+.bookmarks h1{
+    text-align: center;
+}
+
+.bookmarks .bookmark {
+    border: 1px solid #406f8657;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 600px;
+    margin: 10px auto 10px auto;
+    background-color: #406f860a;
+    position: relative;
+}
+
+.bookmarks .bookmark h3 {
+    color: #425b70;
+}
+
+.bookmarks .bookmark h5 {
+    color: #667;
+}
+
+.bookmarks .bookmark label {
+    color: rgb(142, 154, 162);
+}
+
+.bookmarks .btn-view {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+}
+
+
+.bookmarks .btn-remove {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}

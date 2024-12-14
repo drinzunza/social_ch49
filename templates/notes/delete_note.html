@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/notes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="delete-note">
+    <h2>Are you sure you want to delete "{{note.title}}"</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <a href="{% url 'detail_note' note.id %}" class="btn btn-outline-dark">Cancel</a>
+        <button class="btn btn-danger">Yes, delete the note</button>
+    </form>
+</div>
+{% endblock %}

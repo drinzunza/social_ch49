@@ -1,0 +1,219 @@
+
+.list-posts, main {
+    background-color: #eff1f3;
+}
+
+.list-posts .post {
+    border: 1px solid #c7ccd0;
+    background-color: white;
+    padding: 10px 20px 20px 20px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-posts .post p {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.list-posts .post .uploaded-img {
+    max-height: 410px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.list-posts .post .user-info {
+    display: flex;
+}
+
+.list-posts .post .user-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+    margin-right: 6px;
+}
+
+.list-posts .post .user-info .info {
+    padding-top: 15px;
+}
+
+.list-posts .post .user-info label {
+    display: block;
+}
+
+.list-posts .head h1 {
+    flex: 1;
+    text-align: center;
+}
+
+.list-posts .head {   
+    text-align: center;
+}
+
+.list-posts .head a {
+   margin-left: 500px;
+   margin-bottom: 10px;
+}
+
+.list-posts .video-container {
+    text-align: center;
+}
+
+
+.list-posts .reactions {
+    background-color: #406f8614;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    border-top: 1px solid #406f8617;
+    margin-top: 20px;
+    padding: 5px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-posts .reactions button {
+    background-color: #d6e3e6;
+    margin: 0;
+    border:1px solid #c6d4d7;
+    padding: 5px 10px;
+    font-weight: 300;
+}
+
+.list-posts .reactions i {
+    font-size: 18px;
+    color: #9ba5aa;
+}
+
+.list-posts .reactions .like:hover i {
+    color: #416f86;
+}
+
+.list-posts .reactions .dislike:hover i{
+    color: #e98137;
+}
+
+.list-posts .reactions .love:hover i{
+    color: red;
+}
+
+.list-posts .controls {
+    margin-left: auto;
+}
+
+.list-posts .controls i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.list-posts .comments {
+    background-color: #406f8614;
+  
+    padding: 0 20px 10px 20px;
+    margin-top: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+.list-posts .comments .comment {
+      border-top: 1px solid #406f861f;
+}
+
+.list-posts .comments .author {
+    font-weight: 600;
+}
+
+.list-posts .comments .text {
+    margin-top: 0;
+} 
+
+.list-posts .comments .date {
+    margin-top: 0;
+    color: #406f869e;
+} 
+
+.list-posts .comments-link {
+    color: #333;
+    margin-right: 17px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.list-posts .comments-link:hover {
+    color: #0f5cc8;
+}
+
+.list-posts .comments .form {
+    position: relative;
+}
+
+.list-posts .comments .form button {
+    position: absolute;
+    right: 6px;
+    bottom: 5px;
+}
+
+
+.list-posts .date {
+    color: #a8b2b7;
+}
+
+
+
+.create-posts .body {
+    padding: 20px;
+    border: 1px solid #d3d3df;  
+    border-radius: 6px;
+    background-color: #eff1f3;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.create-posts .body h1 {
+    color: #106b89;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.create-posts .body label {
+    font-weight: 300;
+    color: #787b7d;
+    font-size: 14px;
+}
+
+.create-posts .body .controls {
+    text-align: right;
+    margin-top: 12px;
+}
+
+.create-posts .body input,
+.create-posts .body textarea {
+    width: 550px;
+}
+
+
+@media(max-width:767px) {
+    /* rules for cellphones */
+
+    .list-posts .post .uploaded-img {
+        max-width: 100%;
+    }
+
+    .list-posts .head a {
+        margin-left: 0;
+    }
+
+    .list-posts iframe {
+        width: auto !important;
+    }
+}

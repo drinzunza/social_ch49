@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content  %}
+
+<h1>Welcome to Django</h1>
+
+
+<img class="landing" src="{% static 'images/landing.png' %}">
+
+{% endblock %}

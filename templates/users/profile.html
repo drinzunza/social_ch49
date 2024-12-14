@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+
+
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile">
+    <h2>Profile page</h2>
+
+    <div class="parent">
+        <div class="user">
+            {% if profile.avatar %}
+                <img src="{{profile.avatar.url}}">
+            {% else %}  
+                <img src="https://t3.ftcdn.net/jpg/06/33/54/78/360_F_633547842_AugYzexTpMJ9z1YcpTKUBoqBF0CUCk10.jpg">
+            {% endif %}
+
+            <h3>{{profile.user.username}}</h3>
+
+            <label class="group">Personal Info</label>
+            <label>First:{{profile.user.first_name}}</label>
+            <label>Last:{{profile.user.last_name}}</label>
+            <label>Email:{{profile.user.email}}</label>
+            <label>Phone:{{profile.phone_number}}</label>
+
+            <label class="group">Address</label>
+            <label>Street:{{profile.street}}</label>
+            <label>City:{{profile.city}}</label>
+            <label>State:{{profile.state}}</label>
+            <label>Zip Code:{{profile.zip_code}}</label>
+            
+        </div>
+
+        <div class="list-posts">
+
+            {% for post in posts %}
+            <div class="post">
+                <div class="user-info">
+                    <div class="info">
+                        <label class="date">{{post.created_on}}</label>
+                    </div>
+                </div>
+            
+                <p>{{post.content}}</p>
+                {% if post.image %}
+                    <img class="uploaded-img" src="{{post.image.url}}">
+                {% endif %}
+
+                <div class="video-container">
+                    {% if post.video %}
+                        {% video post.video %}
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

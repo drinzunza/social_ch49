@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <h2>Create an account</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-dark">Singup</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
+

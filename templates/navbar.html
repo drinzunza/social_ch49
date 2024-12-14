@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'root' %}">FSDI Projects</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'list_posts' %}">Feed</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'bookmarks' %}">My Bookmarks</a>
+        </li>
+              
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Notes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'list_notes' %}">View notes</a></li>
+            <li><a class="dropdown-item" href="{% url 'create_note' %}">Create a note</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+      </ul>
+      <div class="d-flex" role="search">
+        {% if user.is_authenticated %}
+          <div class="dropdown nav-dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ user.username }}
+            </button>
+            <ul class="dropdown-menu user-dropdown">
+              <li><a class="dropdown-item" href="{% url 'profile' user.id %}">My Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'update_profile' %}">Update my Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        {% else %}
+          <a  class="btn btn-outline-light" href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

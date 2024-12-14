@@ -1,0 +1,16 @@
+# activate the venv
+mac: source venv/bin/activate
+
+win: venv\Scripts\activate
+
+# run server:
+python3 manage.py runserver
+
+
+
+# mirations
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+# create super user
+python3 manage.py createsuperuser

@@ -1,0 +1,30 @@
+main {
+    padding-top: 5rem;
+    background-color: #e2e4e6;
+}
+
+.login {
+    border: 1px solid #a8acb0;
+    border-radius: 6px;
+    padding: 20px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login .p-1 {
+    margin-bottom: 0px;
+    color: #5d5b5b;
+}
+
+.login .p-2 {
+    margin-top: -10px;
+    margin-bottom: 0;
+}

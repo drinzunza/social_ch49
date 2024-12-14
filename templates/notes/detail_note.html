@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/notes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="detail-note">
+
+    <div class="body">
+        <h1>{{note.title}}</h1>
+        <label>{{note.created_on}}</label>
+
+        <div class="note-text">
+            <p>{{note.text}}</p>
+        </div>
+
+        <div class="controls">
+            <a href="{% url 'update_note' note.id %}" class="btn btn-outline-primary">Edit Note</a>
+            <a href="{% url 'delete_note' note.id %}" class="btn btn-outline-danger">Delete Note</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
