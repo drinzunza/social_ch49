@@ -140,6 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
 # if this code is executed in heroku
 # use a heroku db instead of sqlite db
 if 'DYNO' in os.environ:
@@ -159,7 +160,6 @@ MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/"
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = "public-read"
-
 
 STORAGES = { 
     "default": {
