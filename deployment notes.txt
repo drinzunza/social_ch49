@@ -1,0 +1,73 @@
+####### Project CONFIGURATION #######
+
+## installation
+pip3 install gunicorn
+pip3 install whitenoise
+pip3 install django-environ
+pip install django-heroku
+
+## created a Profile with:
+web: gunicorn config.wsgi
+
+
+## create requirements txt
+pip3 freeze > requirements.txt
+
+
+## update requirements to add:
+django-heroku==0.3.1
+psycopg2==2.9.10
+
+
+## allow hosts on settings.py
+ALLOWED_HOSTS = ["*"]  #<- to allow any host  or
+ALLOWED_HOSTS = ["fsdi-social-f388db958eba.herokuapp.com"] #<- to allow an specific host
+
+## configure settings to user posgress db on production
+## import on the top:
+import environ
+
+# load environment vars
+env = environ.Env()
+environ.Env.read_env()
+
+## add to the bottom of settings:
+# if this code is executed in heroku
+# use a heroku db instead of sqlite db
+if 'DYNO' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())
+
+
+
+
+
+##### HEROKU CONFIGURATION #######
+
+# install heroku cli:
+curl https://cli-assets.heroku.com/install.sh | sh
+
+# login to heroku
+heroku login
+
+# create the heroku app:
+keroku create your-app-name-here
+
+# add a posgress db to the app
+heroku addons:create heroku-postgresql:essential-0
+
+
+
+## DEPLOYMENT
+# heroku uses git as a method for deployment
+git add .
+git commit -m "YOUR MESSAGE" 
+git push -u heroku main
+
+
+## Migration on production
+heroku run python manage.py migrate
+
+
+## Created a super user on production
+heroku run python manage.py createsuperuser

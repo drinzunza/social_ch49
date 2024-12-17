@@ -24,13 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-al(_ou5n7f6e-iyb0dmbtgivv8=n!7nr4wjqhx^!fx5ty+qs@l'
+SECRET_KEY = env("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["fsdi-social-f388db958eba.herokuapp.com"]
+ALLOWED_HOSTS = ["fsdi-social-f388db958eba.herokuapp.com", '127.0.0.1']
 
 
 # Application definition
@@ -47,6 +45,7 @@ INSTALLED_APPS = [
     'notes',
     'posts',
     'embed_video',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +148,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if 'DYNO' in os.environ:
     import django_heroku
     django_heroku.settings(locals())
+
+
+# AWS S3 Config
+AWS_ACCESS_KEY_ID = env("AWS_KEY")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET")
+AWS_STORAGE_BUCKET_NAME = "fsdisocial"
+AWS_S3_REGION_NAME = "us-west-1"
+AWS_QUERYSTRING_AUTH = False
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/"
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
