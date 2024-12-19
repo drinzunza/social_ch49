@@ -10,7 +10,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class ListPostsView(LoginRequiredMixin, ListView):
+class ListPostsView(ListView):
     template_name = "posts/list_posts.html"
     model = Post
     context_object_name = 'post_list'
@@ -43,7 +43,7 @@ class ListPostsView(LoginRequiredMixin, ListView):
 
 
 
-class CreatePostView(CreateView):
+class CreatePostView(LoginRequiredMixin, CreateView):
     template_name = "posts/create_post.html"
     form_class = PostForm
 
@@ -55,7 +55,7 @@ class CreatePostView(CreateView):
         return super().form_valid(form)
     
 
-class SaveCommentView(CreateView):
+class SaveCommentView(LoginRequiredMixin, CreateView):
     
     def post(self, request, *args, **kwargs):
         post_id = request.POST.get("post_id")
@@ -84,7 +84,7 @@ class SaveCommentView(CreateView):
         })
 
 
-class ListBookmarkView(LoginRequiredMixin, ListView):
+class ListBookmarkView(ListView):
     template_name = "posts/list_bookmark.html"
     model = Bookmark
 
