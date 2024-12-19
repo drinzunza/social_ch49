@@ -14,3 +14,42 @@ python3 manage.py migrate
 
 # create super user
 python3 manage.py createsuperuser
+
+
+
+
+# AWS S3 policy:
+- enable ACL
+
+policy:
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "PublicReadGetObject",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::fsdisocial/*"
+		},
+		{
+			"Sid": "AllowIAMUserUpload",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::096087489034:user/fsdi"
+			},
+			"Action": [
+				"s3:PutObject",
+				"s3:PutObjectAcl",
+				"s3:ListBucket"
+			],
+			"Resource": [
+				"arn:aws:s3:::fsdisocial",
+				"arn:aws:s3:::fsdisocial/*"
+			]
+		}
+	]
+}
+
+
+# AWS user should have amazons3fullaccess permission

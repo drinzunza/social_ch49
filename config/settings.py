@@ -169,3 +169,6 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+
+LOGIN_URL = '/users/login/'

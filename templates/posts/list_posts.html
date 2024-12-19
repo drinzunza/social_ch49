@@ -32,7 +32,11 @@
 
                 <div class="controls">
                     <i onclick="showModal('{{post.id}}')" class="fa-regular fa-bookmark"></i>
-                    <i class="fa-solid fa-share"></i>
+                    {% if post.author.id == user.id %}
+                        <a class="text-danger" href="{% url 'delete_post' post.id %}">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
            

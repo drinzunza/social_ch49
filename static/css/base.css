@@ -24,12 +24,22 @@ nav {
     background-color: #416f86;
 }
 
-.user-dropdown {
-    right: 0px !important;
-    left: unset !important;
-    top: 36px !important;
-}
 
 .hidden {
     display: none;
+}
+
+
+@media(max-width:767px) { 
+    /* Style for mobiles */
+}
+
+@media(min-width: 768px) {
+    /* Style for desktops only */
+    .user-dropdown {
+        right: 0px !important;
+        left: unset !important;
+        top: 36px !important;
+    }
+    
 }

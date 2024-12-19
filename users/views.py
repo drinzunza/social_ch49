@@ -26,7 +26,7 @@ class UserLoginView(LoginView):
 
     def get_success_url(self):
         # after login, send the user to:
-        return reverse('home')
+        return reverse('list_posts')
         
 
 def user_logout(request):

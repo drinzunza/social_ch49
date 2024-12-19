@@ -7,9 +7,10 @@ from users.models import Profile
 from django.shortcuts import redirect
 from django.views import View
 from django.http import JsonResponse, HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class ListPostsView(ListView):
+class ListPostsView(LoginRequiredMixin, ListView):
     template_name = "posts/list_posts.html"
     model = Post
     context_object_name = 'post_list'
@@ -83,7 +84,7 @@ class SaveCommentView(CreateView):
         })
 
 
-class ListBookmarkView(ListView):
+class ListBookmarkView(LoginRequiredMixin, ListView):
     template_name = "posts/list_bookmark.html"
     model = Bookmark
 
@@ -120,6 +121,21 @@ class DeleteBookmarkView(DeleteView):
         # skip confirmation page
         return self.post(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.success_url)
+    
+
+
+class DeletePostView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('list_posts')
+
+    def get(self, request, *args, **kwargs):
+        # skip confirmation page
+        return self.post(request, *args, **kwargs)
+    
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
